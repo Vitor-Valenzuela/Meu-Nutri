@@ -1,0 +1,917 @@
+
+/* =========================================
+   MEU NUTRI
+   Design system
+========================================= */
+
+:root {
+  --primary: #176b55;
+  --primary-hover: #105440;
+  --primary-light: #eaf3ef;
+
+  --background: #f7f8f6;
+  --surface: #ffffff;
+  --surface-secondary: #f1f4f1;
+
+  --text: #202b26;
+  --text-secondary: #69766f;
+  --text-light: #929d96;
+
+  --border: #e4e9e5;
+  --danger: #b94b45;
+
+  --radius: 12px;
+  --radius-small: 8px;
+
+  --content-width: 1100px;
+}
+
+/* RESET */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-bottom: 35px;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* =========================================
+   CABEÇALHO
+========================================= */
+
+.header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 22px 30px;
+}
+
+.header h1 {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  color: var(--primary);
+  font-size: 22px;
+  font-weight: 750;
+  letter-spacing: -0.8px;
+}
+
+.header p {
+  max-width: var(--content-width);
+  margin: 3px auto 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+/* =========================================
+   CONTEÚDO PRINCIPAL
+========================================= */
+
+main {
+  width: min(100% - 48px, var(--content-width));
+  margin: 32px auto;
+  padding: 0;
+}
+
+h2 {
+  margin: 0 0 9px;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: 650;
+  letter-spacing: -0.3px;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+/* =========================================
+   NAVEGAÇÃO SUPERIOR
+========================================= */
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 32px;
+  padding: 5px;
+  background: #edf1ed;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.navigation button {
+  border: 0;
+  background: transparent;
+  color: var(--text-secondary);
+  padding: 9px 17px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: .2s ease;
+}
+
+.navigation button:hover {
+  color: var(--primary);
+}
+
+.navigation button.active {
+  color: var(--primary);
+  background: var(--surface);
+  box-shadow: 0 1px 3px #1b30220d;
+}
+
+/* =========================================
+   PÁGINAS
+========================================= */
+
+.page {
+  display: none;
+  animation: pageEnter .2s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   INÍCIO
+========================================= */
+
+#inicio > h2 {
+  margin-top: 5px;
+}
+
+#inicio > p {
+  margin-top: 0;
+  margin-bottom: 28px;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 24px 0 34px;
+}
+
+.summary-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.summary-card span {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.summary-card strong {
+  color: var(--primary);
+  font-size: 29px;
+  line-height: 1.3;
+  font-weight: 750;
+  letter-spacing: -1px;
+}
+
+#nextMeal {
+  border-left: 3px solid var(--primary);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--surface);
+  padding: 17px 20px;
+  margin-bottom: 28px;
+}
+
+#homeMeals {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+#homeMeals .card {
+  margin: 0;
+  padding: 15px 17px;
+  border-radius: var(--radius-small);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text);
+}
+
+/* =========================================
+   CARTÕES GERAIS
+========================================= */
+
+.card,
+.meal-card,
+.food-card,
+.upload-card,
+.ru-meal-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: none;
+}
+
+.card {
+  padding: 18px;
+  margin-bottom: 12px;
+}
+
+.meal-card {
+  padding: 21px;
+  margin-bottom: 15px;
+}
+
+.meal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid var(--border);
+}
+
+.meal-header h3 {
+  margin: 0;
+}
+
+.meal-time {
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* =========================================
+   ALIMENTOS DO PLANO
+========================================= */
+
+.food-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.food-row:last-child {
+  border-bottom: 0;
+}
+
+.food-row strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.food-reference {
+  margin-top: 3px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.food-row button {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 0;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 650;
+  transition: .2s;
+}
+
+.food-row button:hover {
+  background: #dcece3;
+}
+
+/* =========================================
+   BANCO DE ALIMENTOS
+========================================= */
+
+#alimentos input,
+#alimentos select {
+  max-width: 100%;
+}
+
+#foodList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.food-card {
+  padding: 15px 17px;
+  margin: 0;
+}
+
+.food-card strong {
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.food-card p {
+  margin: 5px 0 0;
+  font-size: 12px;
+}
+
+/* =========================================
+   FORMULÁRIOS
+========================================= */
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid #dce3dd;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px #176b5514;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-light);
+}
+
+label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+/* =========================================
+   BOTÕES
+========================================= */
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 17px;
+  background: var(--primary);
+  color: white;
+  border: 1px solid var(--primary);
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 650;
+  transition: background .2s, border-color .2s;
+}
+
+.primary:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+.primary:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+button:focus-visible {
+  outline: 3px solid #176b5540;
+  outline-offset: 2px;
+}
+
+/* =========================================
+   DIÁRIO
+========================================= */
+
+#diaryList {
+  margin-top: 20px;
+}
+
+#diaryList .card {
+  padding: 16px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+/* =========================================
+   CARDÁPIO DO RU
+========================================= */
+
+#ru > h2 {
+  font-size: 25px;
+}
+
+#ru > p {
+  margin-bottom: 25px;
+  font-size: 13px;
+}
+
+/* Importação */
+
+#ru .upload-card {
+  padding: 20px;
+  margin-bottom: 13px;
+}
+
+#ru .upload-card h3 {
+  margin: 0 0 17px;
+  font-size: 16px;
+}
+
+#ru .upload-card input[type="file"] {
+  background: var(--surface-secondary);
+  font-size: 12px;
+}
+
+.upload-status {
+  display: block;
+  margin-top: 8px;
+  color: var(--primary);
+  font-size: 12px;
+}
+
+.upload-status.error {
+  color: var(--danger);
+}
+
+/* Seleção do dia */
+
+#ru > .card {
+  padding: 22px;
+  margin-top: 25px;
+}
+
+#ru > .card h3 {
+  margin-top: 0;
+}
+
+#menuDay {
+  margin-top: 5px;
+}
+
+/* Resultado */
+
+#menuResult {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.ru-meal-card {
+  padding: 22px;
+  margin: 0;
+}
+
+.ru-meal-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 15px;
+}
+
+.ru-meal-heading h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 18px;
+}
+
+.ru-meal-heading span:not(.ru-meal-icon) {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.ru-meal-icon {
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: var(--primary-light);
+  font-size: 21px;
+}
+
+.ru-file-name {
+  padding-bottom: 13px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-light);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+/* Pratos */
+
+.ru-food-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 22px;
+}
+
+.ru-food-item {
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.ru-food-item h4 {
+  margin: 0 0 5px;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .1px;
+}
+
+.ru-food-item p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* Editor */
+
+.ru-editor-details {
+  margin-top: 18px;
+  border-top: 1px solid var(--border);
+  padding-top: 13px;
+}
+
+.ru-editor-details summary {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.menu-editor {
+  display: block;
+  min-height: 160px;
+  margin: 12px 0;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.7;
+  resize: vertical;
+}
+
+.ru-editor-details .primary {
+  width: 100%;
+}
+
+/* Mensagens */
+
+.empty {
+  padding: 18px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  background: var(--surface-secondary);
+  border-radius: 8px;
+}
+
+/* =========================================
+   MODAL DE SUBSTITUIÇÃO
+========================================= */
+
+dialog {
+  width: min(92%, 460px);
+  max-height: 85vh;
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  color: var(--text);
+  background: var(--surface);
+  box-shadow: 0 15px 50px #0002;
+}
+
+dialog::backdrop {
+  background: #17251e70;
+  backdrop-filter: blur(2px);
+}
+
+dialog h2 {
+  font-size: 21px;
+  margin-bottom: 20px;
+}
+
+.close {
+  float: right;
+  border: 0;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 24px;
+}
+
+#replacementResult {
+  padding: 12px;
+  margin-top: 10px;
+  background: var(--primary-light);
+  color: var(--primary);
+  border-radius: 7px;
+  font-size: 13px;
+}
+
+/* =========================================
+   NAVEGAÇÃO MOBILE
+========================================= */
+
+.bottom-nav {
+  display: none;
+}
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 700px) {
+  body {
+    padding-bottom: 85px;
+  }
+
+  .header {
+    padding: 18px 20px;
+  }
+
+  main {
+    width: calc(100% - 32px);
+    margin: 23px auto;
+  }
+
+  .navigation {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+
+  .navigation button {
+    padding: 9px 13px;
+  }
+
+  h2,
+  #ru > h2 {
+    font-size: 22px;
+  }
+
+  .summary {
+    gap: 10px;
+  }
+
+  .summary-card {
+    padding: 16px;
+  }
+
+  .summary-card strong {
+    font-size: 25px;
+  }
+
+  #homeMeals,
+  #foodList {
+    grid-template-columns: 1fr;
+  }
+
+  .meal-card,
+  .ru-meal-card {
+    padding: 17px;
+  }
+
+  .ru-food-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .food-row {
+    align-items: flex-start;
+  }
+
+  .food-row button {
+    padding: 8px 10px;
+  }
+
+  .bottom-nav {
+    position: fixed;
+    z-index: 20;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 9px 4px calc(9px + env(safe-area-inset-bottom));
+    background: #ffffff;
+    border-top: 1px solid var(--border);
+  }
+
+  .bottom-nav button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    min-width: 52px;
+    padding: 4px;
+    border: 0;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 18px;
+  }
+
+  .bottom-nav button.active {
+    color: var(--primary);
+  }
+
+  .bottom-nav span {
+    font-size: 10px;
+    font-weight: 600;
+  }
+}
+
+/* =========================================
+   TELAS PEQUENAS
+========================================= */
+
+@media (max-width: 380px) {
+  main {
+    width: calc(100% - 24px);
+  }
+
+  .summary-card {
+    padding: 13px;
+  }
+
+  .summary-card strong {
+    font-size: 22px;
+  }
+
+  .bottom-nav span {
+    font-size: 9px;
+  }
+}
+
+/* CARDÁPIO ORGANIZADO POR DIA */
+
+#menuResult {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.ru-day-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.ru-day-header {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding-bottom: 17px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.ru-day-header span {
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 6px 9px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .5px;
+}
+
+.ru-day-header h3 {
+  margin: 0;
+  font-size: 20px;
+  color: var(--text);
+}
+
+.ru-meal-card {
+  padding: 17px 0;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.ru-meal-card:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.ru-meal-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 13px;
+}
+
+.ru-meal-heading h4 {
+  margin: 0;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.ru-meal-heading span:not(.ru-meal-icon) {
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+
+.ru-food-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 24px;
+}
+
+.ru-food-item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.ru-food-item h5 {
+  margin: 0 0 5px;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ru-food-item p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.ru-editor-details {
+  margin-top: 13px;
+}
+
+@media (max-width: 600px) {
+  .ru-day-section {
+    padding: 16px;
+  }
+
+  .ru-day-header h3 {
+    font-size: 18px;
+  }
+
+  .ru-food-list {
+    grid-template-columns: 1fr;
+  }
+}

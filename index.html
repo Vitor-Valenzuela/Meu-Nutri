@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#16856b">
+  <meta name="description" content="Meu Nutri, seu plano alimentar inteligente.">
+  <title>Meu Nutri</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <h1>🥗 Meu Nutri</h1>
+    <p>Seu plano alimentar inteligente</p>
+  </header>
+
+  <main>
+    <nav class="navigation">
+      <button data-page="inicio" class="active">Início</button>
+      <button data-page="plano">Meu plano</button>
+      <button data-page="alimentos">Alimentos</button>
+      <button data-page="diario">Diário</button>
+      <button data-page="ru">Cardápio RU</button>
+    </nav>
+
+    <section id="inicio" class="page active">
+      <h2>Olá! 👋</h2>
+      <p>Acompanhe sua alimentação diariamente.</p>
+
+      <div class="summary">
+        <div class="summary-card">
+          <span>Refeições registradas</span>
+          <strong id="mealCount">0/6</strong>
+        </div>
+        <div class="summary-card">
+          <span>Alimentos no plano</span>
+          <strong id="foodCount">0</strong>
+        </div>
+      </div>
+
+      <h3>Próxima refeição</h3>
+      <div id="nextMeal" class="card"></div>
+
+      <h3>Suas refeições</h3>
+      <div id="homeMeals"></div>
+    </section>
+
+    <section id="plano" class="page">
+      <h2>Meu plano alimentar</h2>
+      <p>Substitua os alimentos usando as equivalências cadastradas.</p>
+      <div id="mealList"></div>
+    </section>
+
+    <section id="alimentos" class="page">
+      <h2>Banco de alimentos</h2>
+      <input id="foodSearch" type="search" placeholder="Pesquisar alimento...">
+
+      <select id="groupFilter">
+        <option value="">Todos os grupos</option>
+      </select>
+
+      <div id="foodList"></div>
+    </section>
+
+    <section id="diario" class="page">
+      <h2>Diário alimentar</h2>
+      <div id="diaryList"></div>
+    </section>
+
+    <section id="ru" class="page">
+      <h2>Cardápio do Restaurante Universitário</h2>
+      <p>Importe os três PDFs publicados pelo RU.</p>
+
+      <div class="upload-card">
+        <h3>☕ Café da manhã</h3>
+        <label for="breakfastFile">PDF do café da manhã</label>
+        <input type="file" id="breakfastFile" accept=".pdf,application/pdf">
+        <span id="breakfastStatus" class="upload-status">Nenhum arquivo importado.</span>
+      </div>
+
+      <div class="upload-card">
+        <h3>🍛 Almoço</h3>
+        <label for="lunchFile">PDF do almoço</label>
+        <input type="file" id="lunchFile" accept=".pdf,application/pdf">
+        <span id="lunchStatus" class="upload-status">Nenhum arquivo importado.</span>
+      </div>
+
+      <div class="upload-card">
+        <h3>🌙 Jantar</h3>
+        <label for="dinnerFile">PDF do jantar</label>
+        <input type="file" id="dinnerFile" accept=".pdf,application/pdf">
+        <span id="dinnerStatus" class="upload-status">Nenhum arquivo importado.</span>
+      </div>
+
+      <div class="card">
+        <h3>Cardápio semanal</h3>
+
+        <label for="menuDay">Dia da semana</label>
+        <select id="menuDay">
+          <option value="Segunda-feira">Segunda-feira</option>
+          <option value="Terça-feira">Terça-feira</option>
+          <option value="Quarta-feira">Quarta-feira</option>
+          <option value="Quinta-feira">Quinta-feira</option>
+          <option value="Sexta-feira">Sexta-feira</option>
+          <option value="Sábado">Sábado</option>
+          <option value="Domingo">Domingo</option>
+          <option value="Não identificado">Não identificado</option>
+        </select>
+
+        <div id="menuResult">
+          <p class="empty">Importe os PDFs para visualizar o cardápio.</p>
+        </div>
+      </div>
+
+      <button id="clearMenu" class="danger-button" type="button">
+        Apagar cardápio salvo
+      </button>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button data-page="inicio">⌂<span>Início</span></button>
+    <button data-page="plano">▤<span>Plano</span></button>
+    <button data-page="alimentos">⌕<span>Alimentos</span></button>
+    <button data-page="diario">♡<span>Diário</span></button>
+    <button data-page="ru">🍽<span>RU</span></button>
+  </nav>
+
+  <dialog id="replacementDialog">
+    <form method="dialog">
+      <button class="close" aria-label="Fechar">×</button>
+    </form>
+
+    <h2>Substituir alimento</h2>
+    <div id="replacementInfo"></div>
+
+    <label for="replacementSelect">Escolha o substituto</label>
+    <select id="replacementSelect"></select>
+
+    <div id="replacementResult"></div>
+
+    <button id="confirmReplacement" class="primary" type="button">
+      Confirmar substituição
+    </button>
+  </dialog>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="foods.js"></script>
+  <script src="plan.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

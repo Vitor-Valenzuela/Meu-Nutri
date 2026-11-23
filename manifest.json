@@ -1,0 +1,19 @@
+
+{
+  "name": "Meu Nutri",
+  "short_name": "Meu Nutri",
+  "description": "Gerenciamento de plano alimentar e substituições.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4f8f6",
+  "theme_color": "#16856b",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
