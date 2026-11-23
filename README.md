@@ -69,7 +69,7 @@ para sua execução básica.
 1.  Clone o repositório:
 
 ``` bash
-git clone https://github.com/SEU-USUARIO/meu-nutri.git
+git clone https://github.com/Vitor-Valenzuela/meu-nutri.git
 ```
 
 2.  Entre na pasta:
